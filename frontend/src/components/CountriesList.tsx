@@ -26,11 +26,12 @@ const CountriesList = () => {
     return (
         <div>
             <div className={styles.countriesCardWrapper} >
-                {countries.map((country: Country) => (
+                {countries && countries.map((country: Country) => (
                     <div onClick={() => handleCountryClick(country.code)}>
                         <CountryCard key={country.id} country={country}/>
                     </div>
                 ))}
+                {countries.length === 0 && <p>No countries found</p>}
             </div>
         </div>
     );
