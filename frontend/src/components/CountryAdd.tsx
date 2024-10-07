@@ -1,4 +1,4 @@
-import {ADD_COUNTRY} from "@/graphql/client";
+import {ADD_COUNTRY, GET_ALL_COUNTRIES} from "@/graphql/client";
 import {useState} from "react";
 import {useMutation} from "@apollo/client";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ const CountryAdd = () => {
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [emoji, setEmoji] = useState('');
+    const [continent, setContinent] = useState('');
 
     const [addCountry, { loading }] = useMutation(ADD_COUNTRY, {
         onCompleted: () => {
@@ -17,6 +18,7 @@ const CountryAdd = () => {
             setCode('');
             setEmoji('');
         },
+        refetchQueries: [{ query: GET_ALL_COUNTRIES }], //Doesn't seem to work though
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -66,6 +68,22 @@ const CountryAdd = () => {
                         onChange={(e) => setCode(e.target.value)}
                         required
                     />
+                </div>
+                <div className={styles.formField}>
+                    <label>Continent (not implemented)</label>
+                    <select
+                        className={styles.inputField}
+                        value={continent}
+                        onChange={(e) => setContinent(e.target.value)}
+                    >
+                        <option value="">Select Continent</option>
+                        <option value="1">Europe</option>
+                        <option value="2">Asia</option>
+                        <option value="3">Oceania</option>
+                        <option value="4">Africa</option>
+                        <option value="5">North America</option>
+                        <option value="6">South America</option>
+                    </select>
                 </div>
                 <div>
                     <button type="submit" disabled={loading} className={styles.submitButton}>

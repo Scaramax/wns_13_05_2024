@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     padding: 8px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14,5 +14,5 @@
 }
 
 .countryEmoji {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
 }
