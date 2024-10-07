@@ -9,27 +9,18 @@ const CountryAdd = () => {
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [emoji, setEmoji] = useState('');
-    const [error, setError] = useState('');
 
     const [addCountry, { loading }] = useMutation(ADD_COUNTRY, {
-        onCompleted: (data) => {
+        onCompleted: () => {
             toast.success('Country added');
             setName('');
             setCode('');
             setEmoji('');
         },
-        onError: (err) => {
-            setError(err.message);
-        }
     });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
-        if (!name || !code || !emoji) {
-            toast.error('All fields are required');
-            return;
-        }
 
         addCountry({
             variables: {
