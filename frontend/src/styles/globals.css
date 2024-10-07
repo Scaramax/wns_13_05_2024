@@ -13,3 +13,20 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #f5f5f5;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 8px;
+  background-color: #F7146B;
+  color: white;
+}
+
+.header-subtitle {
+  text-decoration: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
